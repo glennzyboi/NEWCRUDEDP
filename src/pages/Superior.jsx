@@ -23,7 +23,28 @@ const Superiors = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Add your handleSubmit code here
+    console.log(empId, superiorEmpId, updateStatus);
+  
+    if (empId === '' || superiorEmpId === '' ) {
+        alert('Please fill all fields');
+        return;
+    }
+  
+    try {
+        await axios.post("http://localhost:8800/superior-add", {
+          employee_id: empId,
+          superior_id: superiorEmpId,
+          status: 'Active'
+          
+        });
+        alert('Superior assigned successfully!');
+        setEmpId('');
+        setSuperiorEmpId('');
+        setUpdateStatus('active');
+        fetchSuperiors();
+      } catch (err) {
+        console.log(err);
+      }  
   };
 
   const handleUpdate = async (event) => {
