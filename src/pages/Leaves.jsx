@@ -88,7 +88,7 @@ const LeavesView = () => {
                                 <td>{employee.leave_status}</td>
                                 <td>{employee.superior_lastname}</td>
                                 <td className="button-container"> 
-                                    <div className="action-btn" onClick={() => handleDelete(employee.employee_id)}>
+                                    <div className="action-btn" onClick={() => handleDelete(employee.leaves_id)}>
                                         DELETE
                                     </div>
                                 </td>
